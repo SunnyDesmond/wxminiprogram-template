@@ -1,0 +1,3 @@
+<page>
+       <web-view src="{{showLink}}" bindmessage='webMsg' bindload='loadOk' binderror="loadFail"></web-view>
+</page>

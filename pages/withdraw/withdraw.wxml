@@ -1,0 +1,23 @@
+<view class='withdraw-content'>
+  <view class='withdraw-title'>微信账号</view>
+  <view class='withdraw-input'>
+    <input type="text" bindinput="bindKeyWechat" placeholder='请注意填写微信账号，非微信昵称'></input>
+  </view>
+  <view class='withdraw-title'>联系电话</view>
+  <view class='withdraw-input'>
+    <input type="number" bindinput="bindKeyMobile" placeholder='请输入正确的手机号码'></input>
+  </view>
+  <view class='withdraw-title'>提现金额</view>
+  <view class='withdraw-money'>￥{{currentAmount}}</view>
+</view>
+<button class='widthdraw-btn' bindtap="withdrawAmount"></button>
+<view class='discover' wx:if="{{showModal}}"></view>
+<view class='withdraw-modal' wx:if="{{showModal}}">
+  <view class='withdraw-modal-title'>提现申请成功</view>
+  <view class='withdraw-modal-content'>为了您的账户安全，系统将在7个工作日内审核您的提现申请，并安排财务打款。
+  </view>
+  <view class="withdraw-modal-close" bindtap="hideModal">我知道了</view>
+</view>
+<view class="idol-sign-close"  wx:if="{{showModal}}" bindtap="hideModal">
+  <image src="https://img.jammyfm.com/media/image/songquiz_assets/idol-sign-close.png"></image>
+</view>

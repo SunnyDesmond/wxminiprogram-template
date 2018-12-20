@@ -1,0 +1,81 @@
+page {
+  background: #240a54;
+}
+
+.list-title {
+  display: flex;
+  text-align: center;
+  font-size: 24rpx;
+  color: #fff;
+  padding-top: 25rpx;
+}
+
+.list-title view {
+  flex: 1;
+}
+
+.list-detail {
+  display: flex;
+  text-align: center;
+  font-size: 24rpx;
+  color: #fff;
+  /* margin: 25rpx 0; */
+  padding: 25rpx 0;
+}
+
+.list-detail view {
+  flex: 1;
+}
+
+.allow-money {
+  text-align: center;
+  color: #fff;
+  font-size: 24rpx;
+}
+
+.allow-cash {
+  text-align: center;
+  color: #fff;
+  height: 70rpx;
+  font-size: 50rpx;
+}
+
+.apply-withdraw {
+  margin: 50rpx auto;
+}
+
+.apply-withdraw button {
+  width: 423rpx;
+  height: 80rpx;
+  background: url('http://jammyfm.oss-cn-qingdao.aliyuncs.com/media/image/songquiz_assets/mxtkgo/distribution/applyforwithdraws.png');
+  background-size: cover;
+}
+
+.list-line {
+  width: 663rpx;
+  border: 1rpx solid #4e3c6f;
+  margin: 20rpx auto 5rpx auto;
+}
+
+.noapply {
+  width: 470rpx;
+  height: 88rpx;
+  background: #ababab;
+  color: #fff;
+  border-radius: 63rpx;
+  line-height: 88rpx;
+  font-weight: 500;
+  margin: 50rpx auto;
+}
+.withdrawnonebg image{
+  width: 409rpx;
+  height: 342rpx;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.created_at{
+  position: relative;
+  left: 30rpx;
+}

@@ -1,0 +1,30 @@
+<view class="page-container">
+  <!-- banner  -->
+  <view class='banner'>
+    <swiper indicator-dots autoplay interval="3000">
+      <block wx:for='{{bannerList}}' wx:key='{{index}}'>
+        <swiper-item>
+          <image mode='aspectFit' src="{{item}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 详情信息 -->
+  <view class='goods-info'>
+    <view class='price-wrap'>
+      <view class='new'>￥89.00</view>
+      <view class='old'>￥199.00</view>
+    </view>
+    <view class='desc'>
+      KM 天然有机保湿滋润润唇膏 多色可选 4g 可食用口红
+    </view>
+  </view>
+  <!-- 温馨提示 -->
+  <view class='tips'>温馨提示：每人只可购买一支哦~</view>
+  <!-- 立即购买 -->
+  <view class='buy-wrap'>
+    <view class='buy-btn' bindtap='buy'>
+      立即购买
+    </view>
+  </view>
+</view>

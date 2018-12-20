@@ -1,0 +1,50 @@
+<template name="navigator">
+  <block wx:if='{{type == "h5"}}'>
+    <view class='{{className}}' bindtap='navigatorHandler' data-location='{{location}}' data-type='{{type}}' data-url='/pages/webview/webview?url={{path}}'>
+      <image src='{{imgUrl}}'></image>
+    </view>
+  </block>
+  <block wx:if='{{type == "jam"}}'>
+    <!-- <block wx:if='{{path == "/pages/guess/level-choose/index"}}'>
+      <form bindsubmit='start' report-submit='true' data-location='{{location}}'>
+        <button style="width:217rpx;height:222rpx;" hover-class='none' class='btn game-btn BB-button-bg-index-right reportAnalytics__indexAd reportAnalytics__indexAd_1' form-type='submit'>
+          <view class='button-desc'>答对5题赢红包</view>
+        </button>
+      </form>
+    </block> -->
+    <block>
+      <form bindsubmit='navigatorHandler' report-submit='true' data-location='{{location}}' data-type='{{type}}' data-url='{{path}}'>
+      <button class='{{className}}' form-type='submit' >
+          <image src='{{imgUrl}}'></image>
+          <block wx:if='{{friendPk.hasMore}}'>
+            <view class='badge'></view>
+          </block>
+      </button>
+      </form>
+       <!-- <view class='{{className}}' bindtap='navigatorHandler' data-location='{{location}}' data-type='{{type}}' data-url='{{path}}'>
+        <image src='{{imgUrl}}'></image>
+       <block wx:if='{{friendPkRedDot}}'>
+            <view class='badge'></view>
+          </block>
+      </view> -->
+    </block>
+  </block>
+
+  <block wx:if='{{type == "none"}}'>
+    <view class='{{className}}' bindtap='navigatorHandler' data-location='{{location}}' data-type='{{type}}'>
+      <image src='{{imgUrl}}'></image>
+    </view>
+  </block>
+  <block wx:if='{{type == "mp"}}'>
+    <block wx:if='{{canIUse.navigatorTarget}}'>
+      <navigator class='{{className}}' bindtap='navigatorHandler' data-location='{{location}}' data-type='{{type}}' hover-class='none' target='miniProgram' open-type='navigate' app-id='{{appId}}' path='{{path}}' version='release'>
+        <image src='{{imgUrl}}'></image>
+      </navigator>
+    </block>
+    <block wx:else>
+      <view class='{{className}}' bindtap='navigatorHandler' data-location='{{location}}' data-type='{{type}}' data-appId='{{appId}}' data-path='{{path}}' data-version='release'>
+        <image src='{{imgUrl}}'></image>
+      </view>
+    </block>
+  </block>
+</template>

@@ -1,0 +1,11 @@
+<!--pages/login/login.wxml-->
+<!-- <view class='logo'>LOGO</view>
+<view class='button-container'>
+  <button class='get-user-info-btn BB-button-bg-red' open-type='getUserInfo' bindgetuserinfo='getUserInfo'>登录</button>
+</view> -->
+<view class='page-container'>
+  <image class='login-bg' src='https://img.jammyfm.com/media/image/songquiz_assets/idol-login-background.png'></image>
+  <button class='get-user-info-btn' hover-class='none' id='login_btn_stat' open-type='getUserInfo' bindgetuserinfo='getUserInfo'>
+    <image class='icon-login' src='https://img.jammyfm.com/media/image/songquiz_assets/idol-login-btn.png'></image>
+  </button>
+</view>

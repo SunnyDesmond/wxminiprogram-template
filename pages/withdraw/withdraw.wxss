@@ -1,0 +1,112 @@
+page {
+  background: #240a54;
+}
+
+.withdraw-content {
+  width: 694rpx;
+  height: 550rpx;
+  background: rgba(255, 252, 254, 1);
+  box-shadow: 0 2rpx 4rpx 0 rgba(0, 0, 0, 0.5);
+  border-radius: 8rpx;
+  margin: 50rpx auto;
+}
+
+.withdraw-title {
+  width: 128prx;
+  height: 45rpx;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 1);
+  line-height: 45rpx;
+  padding: 35rpx 0 0 42rpx;
+}
+
+.withdraw-money {
+  font-size: 70rpx;
+  margin: 5rpx 0 0 32rpx;
+}
+
+.withdraw-input input {
+  font-size: 24rpx;
+  color: rgba(113, 113, 113, 1);
+  margin: 15rpx 0 0 42rpx;
+  width: 620rpx;
+  height: 70rpx;
+  border-bottom: 1px solid rgba(220, 220, 220, 1);
+}
+
+.withdraw-input input::placeholder {
+  font-size: 24rpx;
+  color: rgba(113, 113, 113, 1);
+}
+
+.widthdraw-btn {
+  width: 423rpx;
+  height: 80rpx;
+  background: url('http://jammyfm.oss-cn-qingdao.aliyuncs.com/media/image/songquiz_assets/mxtkgo/distribution/withdraw-btn.png');
+  background-size: cover;
+}
+
+.withdraw-modal {
+  width: 571rpx;
+  height: 525rpx;
+  position: fixed;
+  left: 50%;
+  top: 40%;
+  background: #fff;
+  background-size: cover;
+  transform: translate(-50%, -50%);
+  z-index: 22;
+  border-radius: 20rpx;
+}
+
+.withdraw-modal-title {
+  width: 216rpx;
+  height: 50rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 1);
+  line-height: 50rpx;
+  margin: 60rpx auto;
+}
+
+.withdraw-modal-content {
+  width: 447rpx;
+  height: 129rpx;
+  font-size: 28rpx;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  line-height: 43rpx;
+  margin: 0 auto;
+  letter-spacing: 2rpx;
+}
+
+.idol-sign-close {
+  position: fixed;
+  left: 50%;
+  top: 67%;
+  transform: translate(-50%, -50%);
+  z-index: 22;
+}
+
+.idol-sign-close image {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  margin: 20rpx auto;
+}
+
+.withdraw-modal-close {
+  text-align: center;
+  width: 100%;
+  height: 43rpx;
+  font-size: 32rpx;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  line-height: 100rpx;
+  border-top: 1px solid #ababab;
+  position: absolute;
+  bottom: 0;
+  margin: 60rpx auto;
+}

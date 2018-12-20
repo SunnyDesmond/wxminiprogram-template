@@ -1,0 +1,14 @@
+/**app.wxss**/
+
+.container {
+    padding-top: 10rpx;
+}
+
+button {
+    padding: 0;
+    margin: 0;
+}
+
+button::after {
+    border: none;
+}

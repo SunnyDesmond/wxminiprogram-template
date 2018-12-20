@@ -1,0 +1,28 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/login/login",
+        "pages/welfare-center/welfare-center",
+        "pages/gift-box/gift-box",
+        "pages/game/game",
+        "pages/start-game/start-game",
+        "pages/income-detail/income-detail",
+        "pages/withdraw/withdraw",
+        "pages/withdraw-list/withdraw-list",
+        "pages/rules/rules",
+        "pages/distribution/distribution",
+        "pages/goodsInfo/goodsInfo"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "明星同款GO",
+        "navigationBarTextStyle": "black"
+    },
+    "requiredBackgroundModes": [
+      "audio"
+    ],
+    "navigateToMiniProgramAppIdList":[
+      "wxa8afaad1af0e9fa8","wx4030e521818f901d","wx8b59c04d7b9a59b2"
+    ]
+}

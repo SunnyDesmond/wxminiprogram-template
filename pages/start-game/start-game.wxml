@@ -1,0 +1,55 @@
+<view>
+  <view class='coin'>
+    <text>{{userInfo.coin_num}}</text>
+    <image src='https://img.jammyfm.com/media/image/songquiz_assets/idol-index-coin.png'></image>
+  </view>
+  <view class="start-game-bg">
+    <image src="https://img.jammyfm.com/media/image/songquiz_assets/start-game-bg.png"></image>
+  </view>
+  <view class="tips-wrapper">
+    <view class="tips-left">全部口红插入水果即挑战成功</view>
+    <view class="tips-middle">
+      <view class="tips-middle-top">
+        <image src='https://img.jammyfm.com/media/image/songquiz_assets/start-game-kouhong.png'></image>
+      </view>
+
+    </view>
+    <view class="tips-right">若碰到其他口红即挑战失败</view>
+  </view>
+  <view class="tips-middle-bottom">挑战三关获得奖品</view>
+  <view class="start-challenge" data-params='challenge' bindtap='starChallenge'>
+    <button></button>
+  </view>
+  <view class="challenge-coin">
+    {{goodsInfo.coin_num}}金币1次
+  </view>
+  <view class="challenge-type">
+    <view class="challenge-type-avatar">
+      <image src="{{goodsInfo.idol_img}}"></image>
+    </view>
+    <view class="challenge-type-buy" bindtap="buyGoods">
+      <image src="https://img.jammyfm.com/media/image/songquiz_assets/start-game-buy.png"></image>
+    </view>
+    <view class="challenge-type-try" data-params='try' bindtap='starChallenge'>
+      <image src="https://img.jammyfm.com/media/image/songquiz_assets/start-game-try.png"></image>
+    </view>
+  </view>
+  <view class='discover' wx:if="{{isShowModal}}" bindtap='hideModal'></view>
+  <view class="idol-startgame-modal" wx:if="{{isShowModal}}">
+    <view class="start-game-pocket">
+      <image src="https://img.jammyfm.com/media/image/songquiz_assets/start-game-pocket.png"></image>
+    </view>
+    <view class="start-game-pocket-tips">
+      抱歉，金币不足，无法开始游戏，您可以直接购买此宝贝或前往福利中心完成任务获取金币
+    </view>
+    <view class="start-game-pocket-btn" bindtap="toWelfare">
+      <image src="https://img.jammyfm.com/media/image/songquiz_assets/start-game-pocket-btn.png"></image>
+    </view>
+
+    <view class="start-game-pocket-line">
+    </view>
+    <view class='buy-goods-loc'>
+      <view class="start-game-buy-tips" bindtap="buyGoods">直接购买商品</view>
+    </view>
+  </view>
+</view>

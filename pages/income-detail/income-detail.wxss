@@ -1,0 +1,99 @@
+/* pages/income-detail/income-detail.wxss */
+
+page {
+  background: #240a54;
+}
+
+.tab-bar {
+  display: flex;
+  text-align: center;
+  background: #431d6f;
+  width: 695rpx;
+  height: 66rpx;
+  border-radius: 33rpx;
+  margin-left: 27rpx;
+  line-height: 66rpx;
+  font-size: 28rpx;
+  color: #d7acd0;
+}
+
+.tab-bar-left {
+  flex: 1;
+}
+.middle-line{
+  height: 40rpx;
+  border-right: 1px solid #fff;
+  position: relative;
+  top: 12rpx;
+}
+.tab-bar-right {
+  flex: 1;
+}
+
+.currentChoose {
+  color: #f8e71c;
+}
+
+.list-title {
+  display: flex;
+  text-align: center;
+  font-size: 24rpx;
+  color: #fff;
+  padding-top: 40rpx;
+}
+
+.list-line {
+  width: 663rpx;
+  border: 1rpx solid #4E3C6F;
+  margin:20rpx auto 0 auto; 
+ 
+}
+
+.list-title view {
+  flex: 1;
+}
+ 
+.list-detail {
+  display: flex;
+  text-align: center;
+  font-size: 24rpx;
+  color: #fff;
+  padding: 25rpx 0;
+}
+
+.list-detail view {
+  flex: 1;
+}
+
+.checkRules {
+  font-size: 24rpx;
+  margin: 15rpx auto;
+  width: 639rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  line-height: 33rpx;
+}
+.checkRules image{
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.checkRules navigator {
+  color: #0b24fb;
+}
+
+.list-content {
+  height: 100%;
+}
+.withdrawnonebg image{
+  width: 409rpx;
+  height: 342rpx;
+  position: fixed;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+.rules-color{
+  color: #F8E71C;
+}

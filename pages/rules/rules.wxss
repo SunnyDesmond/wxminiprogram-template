@@ -1,0 +1,11 @@
+/* pages/rules/rules.wxss */
+page {
+  background: #240a54;
+  color: #fff;
+  font-size: 28rpx;
+}
+view{
+  width: 662rpx;
+  margin: 10rpx auto;
+  letter-spacing: 2rpx;
+}

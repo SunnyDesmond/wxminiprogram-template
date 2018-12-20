@@ -1,0 +1,132 @@
+<!--index.wxml-->
+<!-- <view class='layer-mask' wx:if='{{showTest}}'>
+  <button open-type='contact' session-from='{"nickName":"{{userInfo.nickname}}","avatarUrl":"{{userInfo.avatar_url}}"}'></button>
+</view> -->
+
+<view class='container'>
+  <view class='top-wrapper'>
+    <view class='userinfo-avatar'>
+      <view class='avatar'>
+        <image bindtap="avatarAnalytics" src='{{userInfo.avatar_url}}'></image>
+      </view>
+      <view class='userinfo-nickname'>
+        <view class='nickname'>{{userInfo.nickname}}</view>
+        <view class='userinfo-coin'>
+          <view class='coin-num'>
+            <image src='https://img.jammyfm.com/media/image/songquiz_assets/idol-index-coin.png'></image>
+            <text>{{userInfo.coin_num}}</text>
+          </view>
+          <view class='coin-receive' data-url='/pages/welfare-center/welfare-center' bindtap="navigateToNext">领金币</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='features'>
+      <view class='features-icon' data-url="/pages/gift-box/gift-box" bindtap="navigateToNext">
+        <image src='https://img.jammyfm.com/media/image/songquiz_assets/idol-index-giftbox.png'></image>
+        <view>礼品盒</view>
+      </view>
+      <view class='features-icon' data-url='/pages/welfare-center/welfare-center' bindtap="navigateToNext">
+        <image src='https://img.jammyfm.com/media/image/songquiz_assets/idol-index-awardcenter.png'></image>
+        <view>福利中心</view>
+      </view>
+      <view class='features-icon' bindtap="checkModalService">
+        <image src='http://jammyfm.oss-cn-qingdao.aliyuncs.com/media/image/songquiz_assets/idol-index-customerservice.png'></image>
+        <view>客服</view>
+      </view>
+    </view>
+  </view>
+
+
+
+  <view class='banner-wrapper'>
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+      circular="{{circular}}">
+      <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+        <swiper-item>
+          <button class="swiper-btn" data-type="{{item.type}}" data-url="{{item.path}}" data-currentIndex="{{index}}"
+            bindtap="swiperChange" open-type="{{item.type}}">
+            <image src="{{item.pic_url}}"></image>
+          </button>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- <web-view wx:if="{{showLink}}" src="{{showLink}}"></web-view> -->
+  <view class='content-wrapper'>
+    <view class='detail' wx:for="{{goodList}}" wx:key="{{index}}" data-imgUrl="{{item.idol_img}}" data-currentIndex="{{index}}"
+      data-num="{{item.coin_num}}" data-id="{{item.id}}" bindtap='goPlay'>
+      <image src='{{item.goods_img}}'></image>
+      <view class='commodity-name'>{{item.title}}</view>
+      <view class='commodity-btn'>
+        <view class='commodity-price'>￥{{item.price}}</view>
+        <view class='commodity-btn-go'>
+          <button>GO!</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--遮罩层-->
+  <view class='discover' wx:if="{{isShowModal}}" bindtap='hideModal'></view>
+  <!--签到遮罩层-->
+  <view class='discover' wx:if="{{isShowSign}}"></view>
+  <!-- 签到金币遮罩 -->
+  <!-- <view class='discover' wx:if="{{isShowModalSign}}"></view> -->
+
+  <!--签到页面-->
+  <view class="modal-container" wx:if="{{isShowSign}}">
+    <view class="modal-wrapper">
+      <view class="modal-sign">
+        <view class="modal-sign-line"></view>
+        <view class="modal-sign-content" wx:for="{{signInfo.signConfig}}" wx:key="{{index}}">
+          <view class="modal-sign-day" wx:if='{{index < 6}}'>{{conDay> 7?item.day + 1 :item.day}}天</view>
+          <view class="modal-sign-day" wx:if='{{index == 6}}'>{{conDay> 7?'...' :item.day + '天'}}</view>
+          <view class="modal-sign-dot" hidden='{{index < conDay}}'>
+          </view>
+          <view class="modal-sign-success" wx:if='{{index < conDay && index < 7 }}'>
+            <image src="https://img.jammyfm.com/media/image/songquiz_assets/idol-index-successIcon.png"></image>
+          </view>
+          <view class="modal-sign-success" wx:if='{{conDay > 7 && status == 1 }}'>
+            <image src="https://img.jammyfm.com/media/image/songquiz_assets/idol-index-successIcon.png"></image>
+          </view>
+          <view class="modal-sign-num" hidden='{{index < conDay}}'>+{{item.coinNum}}</view>
+          <view class="modal-sign-num  {{index < conDay && index < 7?'modal-sign-day':'' }}" wx:if='{{index < conDay && index < 7 }}'>+{{item.coinNum}}</view>
+          <view class="modal-sign-num {{conDay > 7 && status == 1 ?'modal-sign-day':'' }}" wx:if='{{conDay > 7 && status == 1 }}'>+{{item.coinNum}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="idol-sign-signed" wx:if="{{status == 1}}">
+      <image src="https://img.jammyfm.com/media/image/songquiz_assets/idol-sign-signed.png"></image>
+    </view>
+    <view class="idol-sign-signed" wx:if="{{status == 0}}">
+      <image bindtap="signClick" src="https://img.jammyfm.com/media/image/songquiz_assets/idol-sign-signing.png"></image>
+    </view>
+  </view>
+  <!--签到成功-->
+  <view class="idol-index-gif-sign" wx:if="{{isShowModalSign}}">
+    <image src='http://jammyfm.oss-cn-qingdao.aliyuncs.com/media/image/songquiz_assets/qiandao-success.gif'></image>
+    <view class="idol-index-gif-num">+{{signCoinNum}}<text>金币</text></view>
+  </view>
+  <view class="idol-index-gif-tips" wx:if="{{isShowModalSign}}">
+    <view class="continuous-days">连续签到{{signConDay}}天</view>
+    <view class="continuous-days-tips">小窍门:连续签到天数越长金币奖励越多</view>
+  </view>
+  <!--客服弹窗-->
+  <view class="idol-index-service" wx:if="{{checkService}}">
+    <view class="idol-index-service-title">回复关键字，获取客服支持:</view>
+    <view class="idol-index-service-tips" wx:for="{{serviceList}}" wx:key="{{index}}">{{item}} </view>
+    <button bindtap='serviceNow' session-from='{"nickName":"{{userInfo.nickname}}","avatarUrl":"{{userInfo.avatar_url}}"}'
+      open-type='contact'>
+    </button>
+  </view>
+  <!--关闭按钮-->
+  <view class="idol-sign-close" bindtap="hideModal" wx:if="{{idolBtnClose}}">
+    <image src="https://img.jammyfm.com/media/image/songquiz_assets/idol-sign-close.png"></image>
+  </view>
+  <!-- <view class='back-to-top'>
+  <image  bindtap='bindTop'src="https://img.jammyfm.com/media/image/songquiz_assets/dol-back-top.png"></image>
+  </view> -->
+
+  <!-- 邀请有奖入口 -->
+  <navigator class='invite-entry' wx:if="{{isShowEntry}}" url='/pages/distribution/distribution'></navigator>
+</view>

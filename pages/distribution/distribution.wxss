@@ -1,0 +1,195 @@
+page{
+  width: 100%;
+  height: 100%;
+}
+.page-container{
+  width: 100%;
+  height: 100%;
+  background: url(https://img.jammyfm.com/media/image/songquiz_assets/mxtkgo/distribution/distribution-page-bg.png) no-repeat center center/100% 100%;
+
+}
+.scroll-tips{
+  width: 695rpx;
+  height: 66rpx;
+  margin: 0 auto;
+  background:rgba(212,93,251,.2);
+  border-radius:32rpx;
+  overflow: hidden;
+  position: relative;
+  top: 15rpx;
+}
+.scroll-tips swiper{
+  height: 66rpx;
+}
+
+.scroll-tips swiper-item{
+  line-height: 66rpx;
+  color: #fff;
+  font-size:28rpx;
+  margin-left: 79rpx;
+}
+
+.scroll-tips .trumpet-icon{
+  width: 32rpx;
+  height: 32rpx;
+  background: url('https://img.jammyfm.com/media/image/songquiz_assets/mxtkgo/distribution/distribution-trumpet-icon.png') no-repeat center center/contain;
+position: absolute;
+top: 17rpx;
+left: 24rpx;
+}
+
+.award-tips .text-img{
+  width: 480rpx;
+height: 140rpx;
+margin: 90rpx auto 0;
+background: url('https://img.jammyfm.com/media/image/songquiz_assets/mxtkgo/distribution/distribution-invite-icon.png') no-repeat center center/contain;
+}
+
+.award-tips .rule-btn{
+  width: 216rpx;
+  height: 42rpx;
+  text-align: center;
+  line-height: 42rpx;
+  color: #F8D2FD;
+  border-radius: 20rpx;
+  border: 1rpx solid #F8D2FD;
+  font-size: 24rpx;
+margin: 32rpx auto 0;
+}
+.progress-wrap .pg-img{
+  width: 640rpx;
+  height: 140rpx;
+  margin: 50rpx auto 0;
+  background: url('https://img.jammyfm.com/media/image/songquiz_assets/mxtkgo/distribution/distribution-progress-icon.png') no-repeat center center/contain;
+}
+
+.income-box{
+  margin: 65rpx auto 0;
+  background-color: #fff;
+  box-shadow:0px 2px 4px 0px rgba(0,0,0,0.5);
+border-radius:8rpx;
+width:629rpx;
+height:429rpx;position: relative;
+}
+
+.total-money .money{
+  font-size: 50rpx;
+  font-weight:bold;
+  color:rgba(255,33,85,1);
+  line-height: 70rpx;
+    padding-top: 37rpx;
+  text-align: center;
+}
+.total-money .desc{
+  font-size:24rpx;
+  color:rgba(113,113,113,1);
+line-height:32rpx;
+text-align: center;
+}
+
+.relation-wrap{
+  display: flex;
+  margin: 20rpx 108rpx 0;
+  justify-content: space-between;
+}
+
+.relation-wrap .relation-left,.relation-wrap .relation-right{
+  display: flex;
+  flex-direction: column;
+  width: 136rpx;
+}
+.relation-wrap .relation-left .count,.relation-wrap .relation-right .count{
+  font-size: 36rpx;
+  font-weight:bold;
+color:rgba(36,36,36,1);
+line-height:50rpx;
+text-align: center;
+}
+.relation-wrap .relation-left .desc,.relation-wrap .relation-right .desc{
+  font-size:24rpx;
+  color:rgba(113,113,113,1);
+line-height:32rpx;
+}
+.withdraw-entry{
+  display: flex;
+  margin: 40rpx 102rpx 0;
+  justify-content: space-between;
+}
+
+.withdraw-entry .btn{
+  width:160rpx;
+height:50rpx;
+border-radius:24rpx;
+border:1px solid rgba(132,87,255,1);
+font-size:24rpx;
+color:rgba(133,101,195,1);
+line-height: 50rpx;
+text-align: center;
+}
+
+.poster-btn{
+  position: absolute;
+  bottom: -44rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.poster-btn button{
+  width: 431rpx;
+  height: 88rpx;
+  background: url('https://img.jammyfm.com/media/image/songquiz_assets/mxtkgo/distribution/distribution-poster-btn.png') no-repeat center center/contain;
+  border: none;
+  text-indent: -9999em;
+}
+
+.modal-wrap{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  top: 0;
+  left: 0;
+}
+
+.modal-wrap .layer{
+  background-color: rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100%;
+   z-index: 80;
+}
+
+.modal-wrap .modal-content{
+  background: #fff;
+  width: 656rpx;
+  height: 1059rpx;
+  border-radius: 16rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.modal-wrap .modal-content .bd{
+  display: flex;
+  justify-content: center;
+} 
+
+.modal-wrap .modal-content .bd image{
+  width: 585rpx;
+  height: 892rpx;
+  margin-top: 39rpx;
+}
+
+.modal-wrap .modal-content .ft{
+  display: flex;
+  justify-content: space-around;
+  height: 128rpx;
+  align-items: center;
+ 
+}
+.modal-wrap .modal-content .ft .btn{
+   font-size: 28rpx;
+  color: #4A4A4A;
+  line-height: auto;
+  background: none;
+}

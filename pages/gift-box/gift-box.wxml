@@ -1,0 +1,20 @@
+<view class='container'>
+    <view class='gift-wrapper' wx:if="{{goodList.length > 0}}" wx:for="{{goodList}}" wx:key="{{index}}">
+        <view class="gift-avatar">
+            <image src="{{item.goods_img}}"></image>
+            <view wx:if="{{item.status == 1}}" class="gift-avatar-modal">已兑换</view>
+        </view>
+        <view class="gift-desc">
+            <view class="gift-name">{{item.title}}</view>
+            <view class="gift-detail">{{item.tips}}</view>
+        </view>
+    </view>
+    <view wx:if="{{goodList.length == 0}}">
+        <view class="gift-box-none">
+            <image src="https://img.jammyfm.com/media/image/songquiz_assets/gift-box-none.png"></image>
+        </view>
+        <view class="gift-box-btn" bindtap="toGetGift">
+            <image src="https://img.jammyfm.com/media/image/songquiz_assets/gift-box-btn.png"></image>
+        </view>
+    </view>
+</view>

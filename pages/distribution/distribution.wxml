@@ -1,0 +1,64 @@
+<view class="page-container">
+  <!-- 滚动弹幕 -->
+  <view class='scroll-tips'>
+    <view class='trumpet-icon'></view>
+    <swiper autoplay vertical circular interval="3000">
+      <block wx:for="{{carouselData}}" wx:key='{{index}}'>
+        <swiper-item>
+          {{item}}
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 返利提示 -->
+  <view class='award-tips'>
+    <view class='text-img'></view>
+    <navigator class='rule-btn' url='/pages/rules/rules'>详细规则说明></navigator>
+  </view>
+  <!-- 流程图 -->
+  <view class='progress-wrap'>
+    <view class='pg-img'></view>
+  </view>
+  <!-- 收入box -->
+  <view class='income-box'>
+     <!-- 金额总价 -->
+    <view class='total-money'>
+      <view class='money'>{{totalPrice}}</view>
+      <view class='desc'>我的奖金（元）</view>
+    </view>
+    <!-- 人物关系 -->
+    <view class='relation-wrap'>
+      <view class='relation-left'>
+        <text class='count'>{{direct}}</text>
+        <text class='desc'>直接好友(人)</text>
+      </view>
+      <view class='relation-right'>
+        <text class='count'>{{indirect}}</text>
+        <text class='desc'>间接好友(人)</text>
+      </view>
+    </view>
+       <!-- 提现入口 -->
+    <view class='withdraw-entry'>
+      <navigator  url='/pages/withdraw-list/withdraw-list' class='btn'>提现</navigator>
+      <navigator url='/pages/income-detail/income-detail' class='btn'>收入明细</navigator>
+      
+    </view>
+    <!-- 生成海报 -->
+    <view class='poster-btn'>
+      <button plain bindtap='createPoster'>生成我的推广海报</button>
+    </view>
+  </view>
+</view>
+  <!-- modal -->
+  <view class='modal-wrap' wx:if='{{showPosterModal}}'>
+    <view class='layer'></view>
+    <view class='modal-content'>
+        <view class='bd'>
+          <image src='{{postImg}}' bindload="imgLoadOk"></image>
+        </view>
+        <view class='ft'>
+          <button class='btn' bindtap='postCancel'>取消</button>
+          <button class='btn'  bindtap='postSave'>保存到本地相册</button>
+        </view>
+    </view>
+  </view>

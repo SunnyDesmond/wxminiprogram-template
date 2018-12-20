@@ -1,0 +1,32 @@
+<view >
+  <view class='tab-bar'>
+    <view data-index='1' bindtap='switchList' class="tab-bar-left {{chooseIndex == 1?'currentChoose':''}}">直接好友奖励</view>
+    <view class='middle-line'></view>
+    <view data-index='2' bindtap='switchList' class="tab-bar-right {{chooseIndex == 2?'currentChoose':''}}">间接好友奖励</view>
+  </view>
+  <view class="checkRules">
+  <image src='http://jammyfm.oss-cn-qingdao.aliyuncs.com/media/image/songquiz_assets/mxtkgo/distribution/widthdrawrules.png'></image>
+    邀请好友，及好友邀请好友均可获得奖励。<text class='rules-color' bindtap='toRules'>查看详细奖励规则</text>
+  </view>
+  <view>
+
+    <view class='list-content' wx:if="{{detailtList.length > 0}}">
+      <view class='list-title'>
+        <view>受邀好友</view>
+        <view>时间</view>
+        <view>奖励金额</view>
+      </view>
+      <view class='list-line'></view>
+      <scroll-view style='height: calc(100vh - 500rpx);' scroll-y bindscrolltolower="onbindEvent">
+        <view class='list-detail' wx:for="{{detailtList}}" wx:key="{{index}}">
+          <view>{{item.nickname}}</view>
+          <view>{{item.created_at}}</view>
+          <view>{{item.amount}}元</view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>
+<view class='withdrawnonebg' wx:if="{{isShowNone}}">
+  <image src="http://jammyfm.oss-cn-qingdao.aliyuncs.com/media/image/songquiz_assets/mxtkgo/distribution/withdrawnonebg.png"></image>
+</view>

@@ -1,0 +1,26 @@
+<view >
+  <view class="allow-cash">{{totalAmount}}</view>
+  <view class="allow-money">{{totalAmount < amountLimit?'我的奖金':'可提现金额'}}(元)</view>
+  <view class='apply-withdraw' wx:if="{{totalAmount >= amountLimit}}">
+    <button bindtap='applyWithdraw'></button>
+  </view>
+  <button wx:if="{{totalAmount < amountLimit}}" class='noapply'>满{{amountLimit}}元可提现</button>
+  <view wx:if="{{amountList.length > 0 }}">
+    <view class='list-title'  >
+      <view>提现时间</view>
+      <view>提现金额</view>
+      <view>提现状态</view>
+    </view>
+    <view class='list-line'></view>
+    <scroll-view  style='height: calc(100vh - 550rpx);' scroll-y bindscrolltolower="onbindEvent">
+      <view class='list-detail' wx:for="{{amountList}}" wx:key="{{index}}">
+        <view class='created_at'>{{item.created_at}}</view>
+        <view>{{item.amount}}元</view>
+        <view>{{item.status == 1?'提现中':'成功'}}</view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<view class='withdrawnonebg' wx:if="{{isShowNone}}">
+  <image src="http://jammyfm.oss-cn-qingdao.aliyuncs.com/media/image/songquiz_assets/mxtkgo/distribution/withdrawnonebg.png"></image>
+</view>

@@ -1,0 +1,120 @@
+<view class="container">
+  <view class='top-wrapper'>
+    <view class='idol-welfare-coin'>
+      <image src='https://img.jammyfm.com/media/image/songquiz_assets/idol-welfare-coin.png'></image>
+    </view>
+    <view class='idol-welfare-coinNum'>
+      <view class='coin-num'>{{coin_num}}</view>
+      <view class='coin-tips'>金币可用于玩游戏抽礼品</view>
+    </view>
+  </view>
+  <view class='content-wrapper'>
+    <view class='detail-wrapper'>
+      <view class='detail-wrapper-left'>
+        <view class="detail-wrapper-left-img">
+          <image src='https://img.jammyfm.com/media/image/songquiz_assets/idol-welfare-sign.png'></image>
+        </view>
+        <view class="detail-wrapper-left-tips">
+          <view class="daily-sign">每日签到</view>
+          <view class="daily-sign-tips">每天可签到1次，签到即可领取金币，连续签到金币更多</view>
+        </view>
+      </view>
+      <view class="detail-wrapper-right">
+        <button bindtap="openSignModal">去签到</button>
+      </view>
+    </view>
+    <view class='detail-wrapper'>
+      <view class='detail-wrapper-left'>
+        <view class="detail-wrapper-left-img">
+          <image src='https://img.jammyfm.com/media/image/songquiz_assets/idol-welfare-lucky.png'></image>
+        </view>
+        <view class="detail-wrapper-left-tips">
+          <view class="daily-sign">拼手气</view>
+          <view class="daily-sign-tips">系统将在随机派发金币，点击右方按钮即可拼手气<text bindtap="checkRaiders">查看拼手气攻略</text></view>
+        </view>
+      </view>
+      <view class="detail-wrapper-right">
+        <button bindtap='luckActivity'>拼手气</button>
+      </view>
+    </view>
+  </view>
+  <view class="service-more" bindtap='checkService'>
+    更多金币问题，点击咨询客服
+  </view>
+  <!--遮罩层-->
+  <view class='discover' wx:if="{{isShowShadow}}" bindtap='hideModal'></view>
+  <!--签到遮罩层-->
+  <view class='discover' wx:if="{{isShowSign}}"></view>
+  <!--签到界面弹窗-->
+  <view class="modal-container" wx:if="{{isShowSign}}">
+    <view class="modal-wrapper">
+      <view class="modal-sign">
+        <view class="modal-sign-line"></view>
+        <view class="modal-sign-content" wx:for="{{signInfo.signConfig}}" wx:key="{{index}}">
+          <view class="modal-sign-day" wx:if='{{index < 6}}'>{{conDay> 7?item.day + 1 :item.day}}天</view>
+          <view class="modal-sign-day" wx:if='{{index == 6}}'>{{conDay> 7?'...' :item.day + '天'}}</view>
+          <view class="modal-sign-dot" hidden='{{index < conDay}}'>
+          </view>
+          <view class="modal-sign-success" wx:if='{{index < conDay && index < 7 }}'>
+            <image src="https://img.jammyfm.com/media/image/songquiz_assets/idol-index-successIcon.png"></image>
+          </view>
+          <view class="modal-sign-success" wx:if='{{conDay > 7 && status == 1 }}'>
+            <image src="https://img.jammyfm.com/media/image/songquiz_assets/idol-index-successIcon.png"></image>
+          </view>
+          <view class="modal-sign-num" hidden='{{index < conDay}}'>+{{item.coinNum}}</view>
+          <view class="modal-sign-num  {{index < conDay && index < 7?'modal-sign-day':'' }}" wx:if='{{index < conDay && index < 7 }}'>+{{item.coinNum}}</view>
+          <view class="modal-sign-num {{conDay > 7 && status == 1 ?'modal-sign-day':'' }}" wx:if='{{conDay > 7 && status == 1 }}'>+{{item.coinNum}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="idol-sign-signed" wx:if="{{status == 1}}">
+      <image src="https://img.jammyfm.com/media/image/songquiz_assets/idol-sign-signed.png"></image>
+    </view>
+    <view class="idol-sign-signed" wx:if="{{status == 0}}">
+      <image bindtap="signClick" src="https://img.jammyfm.com/media/image/songquiz_assets/idol-sign-signing.png"></image>
+    </view>
+  </view>
+  <!--签到成功-->
+  <view class="idol-index-gif-sign" wx:if="{{isShowModalSign}}">
+    <image src='http://jammyfm.oss-cn-qingdao.aliyuncs.com/media/image/songquiz_assets/qiandao-success.gif'></image>
+    <view class="idol-index-gif-num">+{{signCoinNum}}<text>金币</text></view>
+  </view>
+  <view class="idol-index-gif-tips" wx:if="{{isShowModalSign}}">
+    <view class="continuous-days">连续签到{{signConDay}}天</view>
+    <view class="continuous-days-tips">小窍门:连续签到天数越长金币奖励越多</view>
+  </view>
+  <!--关闭按钮-->
+  <view class="idol-sign-close {{checkRaider || checkService?'idol-index-raider-close':''}}" bindtap="hideModal" wx:if="{{isShowSignClose}}">
+    <image src="https://img.jammyfm.com/media/image/songquiz_assets/idol-sign-close.png"></image>
+  </view>
+  <!--拼手气奖励金币弹窗-->
+  <view class="idol-index-gif" wx:if="{{isShowCoinModal}}">
+    <image src='http://jammyfm.oss-cn-qingdao.aliyuncs.com/media/image/songquiz_assets/pinshouqi-success.gif'></image>
+    <view class="idol-index-gif-num">+{{coinNumSuccess}}<text>金币</text></view>
+  </view>
+  <!--拼手气失败弹窗-->
+  <view class="idol-index-gif-fail" wx:if="{{isShowFail}}">
+    <image src='http://jammyfm.oss-cn-qingdao.aliyuncs.com/media/image/songquiz_assets/idol-lucky-fail.png'></image>
+    <view class="idol-index-gif-fail-tips">
+      <view>
+        很遗憾，运气不太好
+      </view>
+      <view>
+        看看攻略在试试吧
+      </view>
+    </view>
+  </view>
+  <!--查看攻略弹窗-->
+  <view class="idol-index-raider" wx:if="{{checkRaider}}">
+    <view class="modal-tips">{{luckTips}}</view>
+    <button session-from='{"nickName":"{{userInfo.nickname}}","avatarUrl":"{{userInfo.avatar_url}}"}' open-type='contact'>
+    </button>
+
+  </view>
+  <!--点击咨询客服弹窗-->
+  <view class="idol-index-service" wx:if="{{checkService}}">
+    <view class="modal-tips"> {{coinTips}}</view>
+    <button session-from='{"nickName":"{{userInfo.nickname}}","avatarUrl":"{{userInfo.avatar_url}}"}' open-type='contact'>
+    </button>
+  </view>
+</view>
